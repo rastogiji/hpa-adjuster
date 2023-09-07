@@ -14,7 +14,8 @@ spec:
             image: <docker-image>
             imagePullPolicy: IfNotPresent
             env:
-              NAMESPACE: "<namespace_name>"
+            - name: NAMESPACE
+              value: "<namespace-name>"
           restartPolicy: OnFailure
           serviceAccountName: hpa-adjuster-sa
 

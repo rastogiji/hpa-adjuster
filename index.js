@@ -1,5 +1,4 @@
 const k8s = require("@kubernetes/client-node");
-const dotenv = require("dotenv").config()
 
 // Importing Environment Variables
 const namespace = process.env.NAMESPACE
