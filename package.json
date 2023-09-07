@@ -1,7 +1,7 @@
 {
   "name": "hpa-adjuster",
-  "version": "0.0.1This utility runs as a cron job within your Kubernetes Cluster and adjusts the min Replicas value of your HPAs during low and high traffic period",
-  "description": "",
+  "version": "0.0.1",
+  "description": "This utility runs as a cron job within your Kubernetes Cluster and adjusts the min Replicas value of your HPAs during low and high traffic period",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
