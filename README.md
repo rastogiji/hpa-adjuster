@@ -16,15 +16,15 @@ Before setting up and using this CronJob, ensure that you have the following pre
 - A **minReplicas** annotation to all your HPAs specifying the min replica count you would like the cronjob to apply during scale down/up.
 
 ## Installation
-1. Clone the Repository
+1. Clone the Repository:
     ```shell
     git clone https://github.com/rastogiji/hpa-adjuster.git
     cd kubernetes-cronjob-hpa-updater
     ```
 
-1. Creating and Pushing the Docker container to your Docker Repository
+1. Creating and Pushing the Docker Container to your Docker Repository.
 
-1. Make appropriate changes to cronJob.yaml files to fileds enclosed in **<>**. Create a Kubernetes CronJob by applying the configuration:
+1. Make appropriate changes to cronJob.yaml files to fields enclosed in **<>**. Create a Kubernetes CronJob by applying the configuration:
     ```shell
     kubectl apply -f cronJob.yaml
     ```
@@ -38,3 +38,6 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 1. Create a new branch for your feature or bug fix.
 1. Make your changes and ensure that the code is well-documented.
 1. Open a pull request, describing the changes you've made and their purpose.
+
+## LICENSE
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/rastogiji/hpa-adjuster/blob/master/LICENSE) file for details
