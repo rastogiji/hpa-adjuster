@@ -1,0 +1,50 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hpa-adjuster
+  namespace: <crons>
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hpa-adjuster
+            image: <docker-image>
+            imagePullPolicy: IfNotPresent
+            env:
+              NAMESPACE: "<namespace_name>"
+          restartPolicy: OnFailure
+          serviceAccountName: hpa-adjuster-sa
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hpa-adjuster-sa
+  namespace: <crons>
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hpa-adjuster-role
+rules:
+- apiGroups: ["autoscaling"]
+  resources: ["horizontalpodautoscalers"]
+  verbs: ["get", "list", "update", "patch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hpa-adjuster-role-binding
+subjects:
+- kind: ServiceAccount
+  name: hpa-adjuster-sa # Name is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: hpa-adjuater-role
+  apiGroup: rbac.authorization.k8s.io
