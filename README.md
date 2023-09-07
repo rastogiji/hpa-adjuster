@@ -18,7 +18,7 @@ Before setting up and using this CronJob, ensure that you have the following pre
 ## Installation
 1. Clone the Repository
     ```shell
-    git clone https://github.com/yourusername/kubernetes-cronjob-hpa-updater.git
+    git clone https://github.com/rastogiji/hpa-adjuster.git
     cd kubernetes-cronjob-hpa-updater
     ```
 
