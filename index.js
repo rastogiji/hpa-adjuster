@@ -19,7 +19,7 @@ const main = async ()=>{
             console.log(`Old Min Replicas for ${item.metadata.name}: ${item.spec.minReplicas}`)
 
             //Fetching the minReplicas annotation
-            const newMinReplicas = item.metadata.annotations.minReplicas
+            const newMinReplicas = item.metadata.annotations.minReplicas || 1
 
             // Define Merge Path config
             const patch =[{
