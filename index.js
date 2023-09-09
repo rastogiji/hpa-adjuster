@@ -1,7 +1,7 @@
 const k8s = require("@kubernetes/client-node");
 
 // Importing Environment Variables
-const namespace = process.env.NAMESPACE
+const namespace = process.env.NAMESPACE || "default"
 // Loading Kubeconfig from ~/.kube directory
 const kc = new k8s.KubeConfig();
 kc.loadFromDefault();
@@ -43,7 +43,7 @@ const main = async ()=>{
             }
          })
     } catch (error) {
-        throw error.body.details
+        throw error
     }
 }
 
